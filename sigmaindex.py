@@ -3,7 +3,6 @@ import numpy as np
 import pandas as pd
 import pylab as pl
 import tushare as ts
-import mplfinance as mpf
 from datetime import datetime
 from pycoingecko import CoinGeckoAPI
 cg = CoinGeckoAPI()
@@ -62,7 +61,4 @@ index=index.drop(columns=['eth_date', 'usdt_date', 'usdc_date', 'busd_date', 'da
 index.set_index("date", inplace=True)
 # 产出marketcap函数
 index['marketcap']=index['btc_market_caps']+index['eth_market_caps']+index['usdt_market_caps']+index['usdc_market_caps']+index['busd_market_caps']+index['dai_market_caps']
-
-# 绘图
-index['marketcap'].plot
-plt.show()
+index['sigma']=index['marketcap']/1454000000000
